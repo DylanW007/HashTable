@@ -5,16 +5,21 @@
 #include <fstream>
 #include <random>
 #include <cstring>
+#include <cctype>
+
 //#include "firstnames.txt"
 //#include "lastnames.txt"
 using namespace std;
 
-/* Not using just yet
-void action(){
-  cout << "Generate\nAdd\nPrint\nDelete." << endl;
-  cout << "What action do you want to do?: ";
-  cin >> action;
-}*/
+// Used for learning how to initialize hash tables
+// https://www.digitalocean.com/community/tutorials/hash-table-in-c-plus-plus
+void initializehash(){
+  cout << "Placeholder of initalizing the hash table" << endl;
+}
+
+void rehash(){
+  cout << "Placeholder of rehashing when too many collisions" << endl;
+}
 
 void genstd(){
     int numgenstd;
@@ -86,9 +91,59 @@ void delstd(){
   cout << "Deleting Student" << endl;
 }
 
+void commandcheck(){
+  string command;
+  bool cmdcheck = true;
+  while (cmdcheck){
+    cout << "What command would you like to do? (help for commands): ";
+    cin >> command;
+    for(auto& x : command){
+      x = tolower(x);
+    }
+
+    
+    if (command == "help"){
+      cout << "Commands: " << endl;
+      cout << "--------" << endl;
+      cout << "  Add   " << endl;
+      cout << " Remove " << endl;
+      cout << " Print  " << endl;
+      cout << "Generate" << endl;
+      cout << "--------" << endl;
+      
+    }
+
+    else if (command == "add"){
+      cout << "----------------\n" << endl;
+      addstd();
+      cout << "\n----------------" << endl;
+    }
+      
+    else if (command == "remove"){
+      cout << "remove" << endl;
+    }
+      
+    else if (command == "print"){
+      cout << "print" << endl;
+    }
+
+    else if (command == "generate"){
+      cout << "\n----------------\n" << endl;
+      genstd();
+      cout << "\n----------------" << endl;
+    }
+
+    else{
+      cout << "Invalid command, try again." << endl;
+    }
+  }  
+}
+
 int main(){
 
-  genstd();
+  commandcheck();
+  
+
   return 0;
 
 }
