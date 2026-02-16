@@ -13,10 +13,10 @@ Description: Define a hash table class to store student records.
 using namespace std;
 
 struct Student{
-  std::string name;
-  float gpa;
-  int id;
-  Student* next;
+    std::string name;
+    float gpa;
+    int id;
+    Student* next;
 };
 
 class HashTable {

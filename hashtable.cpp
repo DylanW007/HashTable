@@ -3,12 +3,10 @@ Dylan Waters
 2/15/26
 
 Description: Implement a hash table to store student records, using chaining to handle collisions.
-
 */
 
 #include "hashtable.h"
 #include <iostream>
-#include <cassert>
 
 
 // Constructor to initialize the hash table with a given initial size
@@ -27,7 +25,7 @@ HashTable::HashTable(int initialSize) {
 
 // Destructor to clean up memory used by the hash table
 HashTable::~HashTable() {
-    // Delete all chained Student nodes and then the table array
+    // Delete all students in the table
     for (int i = 0; i < size; ++i) {
         Student* cur = table[i];
         while (cur) {
