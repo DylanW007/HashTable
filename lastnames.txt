@@ -34,6 +34,5 @@ Du
 Kayak
 Dillhinnigan
 Keyboard
-鱿鱼
 Jalbraith
 Python
