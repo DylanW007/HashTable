@@ -74,53 +74,53 @@ void genstd(HashTable& table){
 
 // Add a student to the database by asking for their first name, last name, and GPA
 void addstd(HashTable& table){
-  string stdfirstname;
-  string stdlastname;
-  float stdgpa;
-  int stdid;
-  
-  cout << "What is your student's first name?: ";
-  cin >> stdfirstname;
-  
-  cout << "What is your student's last name?: ";
-  cin >> stdlastname;
+    string stdfirstname;
+    string stdlastname;
+    float stdgpa;
+    int stdid;
+    
+    cout << "What is your student's first name?: ";
+    cin >> stdfirstname;
+    
+    cout << "What is your student's last name?: ";
+    cin >> stdlastname;
 
-  cout << "What is your student's GPA?: ";
-  cin >> stdgpa;
+    cout << "What is your student's GPA?: ";
+    cin >> stdgpa;
 
-  Student* student = new Student;
-  student->name = stdfirstname + " " + stdlastname;
-  student->gpa = stdgpa;
-  student->id = stdid;
-  student->next = nullptr; // Initialize next pointer to nullptr
-  table.add(student);
+    Student* student = new Student;
+    student->name = stdfirstname + " " + stdlastname;
+    student->gpa = stdgpa;
+    student->id = stdid;
+    student->next = nullptr; // Initialize next pointer to nullptr
+    table.add(student);
 
-  cout << "Student added with ID: " << student->id << endl;
+    cout << "Student added with ID: " << student->id << endl;
 }
 
 // Print all students in the hash table
 void prtstd(HashTable& table){
-  table.print();
+    table.print();
 }
 
 // Delete a student from the hash table from ID number
 void delstd(HashTable& table){
-  int id;
-  cout << "Enter the ID of the student to delete: ";
-  cin >> id;
-  table.remove(id);
+    int id;
+    cout << "Enter the ID of the student to delete: ";
+    cin >> id;
+    table.remove(id);
 }
 
 // Print out the commands for the user
 void printcmds(){
-  cout << "Commands: " << endl;
-  cout << "----------------" << endl;
-  cout << "Add - Add student entry into database" << endl;
-  cout << "Remove - Remove student entry from database" << endl;
-  cout << "Print - Print all students in database" << endl;
-  cout << "Generate - Generate random students and add them to database" << endl;
-  cout << "Exit - Exit the program" << endl;
-  cout << "----------------" << endl;
+    cout << "Commands: " << endl;
+    cout << "----------------" << endl;
+    cout << "Add - Add student entry into database" << endl;
+    cout << "Remove - Remove student entry from database" << endl;
+    cout << "Print - Print all students in database" << endl;
+    cout << "Generate - Generate random students and add them to database" << endl;
+    cout << "Exit - Exit the program" << endl;
+    cout << "----------------" << endl;
 }
 
 // Main function to run the program
