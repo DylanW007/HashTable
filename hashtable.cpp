@@ -10,7 +10,7 @@ Description: Implement a hash table to store student records, using chaining to 
 
 
 // Constructor to initialize the hash table with a given initial size
-HashTable::HashTable(int initialSize) {
+HashTable::HashTable(uint32_t initialSize) {
     studentIdCounter = 0; // Initialize student ID counter
 
     if (initialSize <= 0){
@@ -26,7 +26,7 @@ HashTable::HashTable(int initialSize) {
 // Destructor to clean up memory used by the hash table
 HashTable::~HashTable() {
     // Delete all students in the table
-    for (int i = 0; i < size; ++i) {
+    for (uint32_t i = 0; i < size; ++i) {
         Student* cur = table[i];
         while (cur) {
             Student* next = cur->next;
@@ -38,11 +38,9 @@ HashTable::~HashTable() {
 }
 
 // Hash function to compute the index for a given student ID
-int HashTable::hash(int studentId) {
-    if (size <= 0){
-        return 0;
-    }
-    int h = studentId % size;
+uint32_t HashTable::hash(uint32_t studentId) {
+
+    uint32_t h = studentId % size;
     if (h < 0){
         h += size;
     }
@@ -59,7 +57,7 @@ void HashTable::add(Student* student){
         return;
     }
     // Count collisions at target index
-    int idx = hash(student->id);
+    uint32_t idx = hash(student->id);
     int count = 0;
     for (Student* cur = table[idx]; cur; cur = cur->next) {
         ++count;
@@ -78,8 +76,8 @@ void HashTable::add(Student* student){
 }
 
 // Remove a student from the hash table by their ID
-void HashTable::remove(int studentId) {
-    int idx = hash(studentId);
+void HashTable::remove(uint32_t studentId) {
+    uint32_t idx = hash(studentId);
     Student* cur = table[idx];
     Student* prev = nullptr;
     while (cur) {
@@ -102,19 +100,19 @@ void HashTable::remove(int studentId) {
 void HashTable::resize() {
 
     cout << "Resizing hash table from size " << size << " to size " << (size * 2) << endl;
-    int newSize = size * 2;
+    uint32_t newSize = size * 2;
 
     Student** newTable = new Student*[newSize];
-    for (int i = 0; i < newSize; ++i){
+    for (uint32_t i = 0; i < newSize; ++i){
         newTable[i] = nullptr;
     }
 
     // Move nodes into new table (rehash)
-    for (int i = 0; i < size; ++i) {
+    for (uint32_t i = 0; i < size; ++i) {
         Student* cur = table[i];
         while (cur) {
             Student* next = cur->next; // save next pointer before we change it
-            int newIdx = cur->id % newSize;
+            uint32_t newIdx = cur->id % newSize;
             if (newIdx < 0) newIdx += newSize;
             // insert at head in new table
             cur->next = newTable[newIdx];
@@ -130,12 +128,12 @@ void HashTable::resize() {
 
 // Print all students in the hash table, along with total count and maximum chain length.
 void HashTable::print() {
-    int totalStudents = 0;
-    int maxChainLength = 0;
+    uint32_t totalStudents = 0;
+    uint32_t maxChainLength = 0;
     
-    for (int i = 0; i < size; ++i) {
+    for (uint32_t i = 0; i < size; ++i) {
         Student* cur = table[i];
-        int chainLength = 0;
+        uint32_t chainLength = 0;
         while (cur) {
             cout << "ID: " << cur->id << ", Name: " << cur->name << ", GPA: " << cur->gpa << endl;
             totalStudents++;

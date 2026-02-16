@@ -32,9 +32,9 @@ int TABLE_SIZE = 100; // The hash table should start with at least 100 slots
 
 // Generate a random amount of students and add them to the hash table
 void genstd(HashTable& table){
-    int numgenstd;
+    uint32_t numgenstd;
     srand(time(NULL));
-    int id = 400000;
+    uint32_t id = 400000;
     
     cout << "How many students do you want to generate? :";
     cin >> numgenstd;
@@ -59,7 +59,7 @@ void genstd(HashTable& table){
     MyReadLast.close();
 
     // Choose random student name (first or last depending on file)
-    for(int i = 0; i < numgenstd; i++){
+    for(uint32_t i = 0; i < numgenstd; i++){
       int num = rand() % fname.size();
       int num2 = rand() % lname.size();
 
@@ -77,7 +77,7 @@ void addstd(HashTable& table){
     string stdfirstname;
     string stdlastname;
     float stdgpa;
-    int stdid;
+    uint32_t stdid;
     
     cout << "What is your student's first name?: ";
     cin >> stdfirstname;
@@ -105,7 +105,7 @@ void prtstd(HashTable& table){
 
 // Delete a student from the hash table from ID number
 void delstd(HashTable& table){
-    int id;
+    uint32_t id;
     cout << "Enter the ID of the student to delete: ";
     cin >> id;
     table.remove(id);
