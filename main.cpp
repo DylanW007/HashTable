@@ -20,12 +20,9 @@ Comment. (5 points)
 
 #include <iostream>
 #include <string>
-#include <ctime>
 #include <vector>
 #include <fstream>
 #include <random>
-#include <cstring>
-#include <cctype>
 
 #include "hashtable.h"
 

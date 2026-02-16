@@ -8,9 +8,6 @@ Description: Define a hash table class to store student records.
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
-// Include cstring for string manipulation and cstddef for size_t
-#include <cstring>
-#include <cstddef>
 #include <string>
 
 using namespace std;
